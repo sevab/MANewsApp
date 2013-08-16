@@ -8,6 +8,9 @@
 
 #import "MKADViewController.h"
 #import "MKADArticlesTableViewController.h"
+
+NSString * const MakersNewsURLKey = @"MakersNewsURLKey";
+
 @interface MKADViewController ()
 
 @end
@@ -17,7 +20,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    NSString *url = [[NSUserDefaults standardUserDefaults] objectForKey:MakersNewsURLKey];
+    if ([url length]) {
+        //http://makers-news-app.herokuapp.com/
+        self.textField.text = url;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -27,8 +34,19 @@
 }
 
 - (IBAction)getNews:(id)sender {
-    MKADArticlesTableViewController *articlesTableViewController = [[MKADArticlesTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    if ([self.textField.text length]) {
+
+        [[NSUserDefaults standardUserDefaults] setObject:self.textField.text
+                                                  forKey:MakersNewsURLKey];
     
-    [self.navigationController pushViewController:articlesTableViewController animated:YES];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        MKADArticlesTableViewController *articlesTableViewController =
+                                                                    [[MKADArticlesTableViewController alloc] initWithStyle:UITableViewStylePlain];
+        
+        [self.navigationController
+                                pushViewController:articlesTableViewController
+                                          animated:YES];
+    }
 }
 @end

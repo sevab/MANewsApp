@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString * const MakersNewsURLKey;
+
 @interface MKADViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
