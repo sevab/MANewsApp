@@ -26,7 +26,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+
+    self.titleLabel.text = self.article.title;
+    self.dateLabel.text = self.article.publishedDate;
+    self.bodyTextView.text = self.article.body;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +40,6 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)share:(id)sender {
+}
 @end

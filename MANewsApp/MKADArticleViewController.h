@@ -11,4 +11,10 @@
 
 @interface MKADArticleViewController : UIViewController
 @property (strong) MKADArticle *article; // strong tells the compiler to retain this property unless the object nils it itself
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UITextView *bodyTextView;
+
+- (IBAction)share:(id)sender;
 @end
