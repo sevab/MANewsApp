@@ -12,5 +12,6 @@
 
 @property (strong) NSString *articlesURLString;
 @property (strong) NSMutableData *responseData;
+@property (strong) NSArray *articles;
 
 @end

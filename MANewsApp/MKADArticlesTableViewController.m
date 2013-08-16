@@ -7,6 +7,8 @@
 //
 
 #import "MKADArticlesTableViewController.h"
+#import "MKADArticle.h"
+#import "MKADArticleViewController.h"
 
 @interface MKADArticlesTableViewController ()
 
@@ -44,7 +46,19 @@
     if (error) {
         NSLog(@"Error parsing JSON: %@", [error localizedDescription]);
     } else {
-        NSLog(@"Decoded JSON %@", jsonReceivedArray);
+        // NSLog(@"Decoded JSON %@", jsonReceivedArray);
+        NSMutableArray *articlesMutableArray = [NSMutableArray array];
+        for (NSDictionary *jsonObject in jsonReceivedArray) {
+            MKADArticle *article = [[MKADArticle alloc] init];
+            article.numericID = jsonObject[@"id"];
+            article.title = jsonObject[@"title"];
+            article.body = jsonObject[@"body"];
+            article.publishedDate = jsonObject[@"published"];
+            article.urlPath = jsonObject[@"url"];
+            [articlesMutableArray addObject:article];
+        }
+        self.articles = [articlesMutableArray copy];
+        [self.tableView reloadData];
     }
 }
 
@@ -64,17 +78,22 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 15;
+    return [self.articles count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%d", [indexPath row]];
+    MKADArticle *article = [self.articles objectAtIndex:indexPath.row];
+    
+    
+    cell.textLabel.text = article.title;
+    cell.detailTextLabel.text = article.body;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; // make it preties, and limit it to one line of body
     
     // Configure the cell...
     
@@ -121,19 +140,16 @@
 */
 
 #pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    cell.textLabel.text = @"Selected";
-//    cell.textLabel.text = [NSString stringWithFormat:@"%d", [indexPath]];;
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    MKADArticle *article = [self.articles objectAtIndex:indexPath.row];
+    MKADArticleViewController *articleViewController = [[MKADArticleViewController alloc] init];
+    articleViewController.article = article;
+    [self.navigationController pushViewController:articleViewController animated:YES];
 }
+
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+//    cell.textLabel.text = @"Selected";
+//}
 
 @end

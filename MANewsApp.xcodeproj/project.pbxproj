@@ -20,6 +20,9 @@
 		14EEFEEA17BE388E007A8B2B /* MKADViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14EEFEE817BE388E007A8B2B /* MKADViewController.xib */; };
 		14EEFEF317BE41C9007A8B2B /* MKADArticlesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EEFEF117BE41C9007A8B2B /* MKADArticlesTableViewController.m */; };
 		14EEFEF417BE41C9007A8B2B /* MKADArticlesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14EEFEF217BE41C9007A8B2B /* MKADArticlesTableViewController.xib */; };
+		14EEFEF717BE652F007A8B2B /* MKADArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EEFEF617BE652F007A8B2B /* MKADArticle.m */; };
+		14EEFEFB17BE6DF7007A8B2B /* MKADArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EEFEF917BE6DF7007A8B2B /* MKADArticleViewController.m */; };
+		14EEFEFC17BE6DF7007A8B2B /* MKADArticleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14EEFEFA17BE6DF7007A8B2B /* MKADArticleViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,11 @@
 		14EEFEF017BE41C9007A8B2B /* MKADArticlesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKADArticlesTableViewController.h; sourceTree = "<group>"; };
 		14EEFEF117BE41C9007A8B2B /* MKADArticlesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKADArticlesTableViewController.m; sourceTree = "<group>"; };
 		14EEFEF217BE41C9007A8B2B /* MKADArticlesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MKADArticlesTableViewController.xib; sourceTree = "<group>"; };
+		14EEFEF517BE652F007A8B2B /* MKADArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKADArticle.h; path = MANewsApp/MKADArticle.h; sourceTree = "<group>"; };
+		14EEFEF617BE652F007A8B2B /* MKADArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKADArticle.m; path = MANewsApp/MKADArticle.m; sourceTree = "<group>"; };
+		14EEFEF817BE6DF7007A8B2B /* MKADArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKADArticleViewController.h; sourceTree = "<group>"; };
+		14EEFEF917BE6DF7007A8B2B /* MKADArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKADArticleViewController.m; sourceTree = "<group>"; };
+		14EEFEFA17BE6DF7007A8B2B /* MKADArticleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MKADArticleViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,8 @@
 		14EEFEC117BE388E007A8B2B = {
 			isa = PBXGroup;
 			children = (
+				14EEFEF517BE652F007A8B2B /* MKADArticle.h */,
+				14EEFEF617BE652F007A8B2B /* MKADArticle.m */,
 				14EEFED317BE388E007A8B2B /* MANewsApp */,
 				14EEFECC17BE388E007A8B2B /* Frameworks */,
 				14EEFECB17BE388E007A8B2B /* Products */,
@@ -93,6 +103,9 @@
 				14EEFEE517BE388E007A8B2B /* MKADViewController.h */,
 				14EEFEF017BE41C9007A8B2B /* MKADArticlesTableViewController.h */,
 				14EEFEF117BE41C9007A8B2B /* MKADArticlesTableViewController.m */,
+				14EEFEF817BE6DF7007A8B2B /* MKADArticleViewController.h */,
+				14EEFEF917BE6DF7007A8B2B /* MKADArticleViewController.m */,
+				14EEFEFA17BE6DF7007A8B2B /* MKADArticleViewController.xib */,
 				14EEFEF217BE41C9007A8B2B /* MKADArticlesTableViewController.xib */,
 				14EEFEE617BE388E007A8B2B /* MKADViewController.m */,
 				14EEFEE817BE388E007A8B2B /* MKADViewController.xib */,
@@ -173,6 +186,7 @@
 				14EEFEE417BE388E007A8B2B /* Default-568h@2x.png in Resources */,
 				14EEFEEA17BE388E007A8B2B /* MKADViewController.xib in Resources */,
 				14EEFEF417BE41C9007A8B2B /* MKADArticlesTableViewController.xib in Resources */,
+				14EEFEFC17BE6DF7007A8B2B /* MKADArticleViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +201,8 @@
 				14EEFEDE17BE388E007A8B2B /* MKADAppDelegate.m in Sources */,
 				14EEFEE717BE388E007A8B2B /* MKADViewController.m in Sources */,
 				14EEFEF317BE41C9007A8B2B /* MKADArticlesTableViewController.m in Sources */,
+				14EEFEF717BE652F007A8B2B /* MKADArticle.m in Sources */,
+				14EEFEFB17BE6DF7007A8B2B /* MKADArticleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
