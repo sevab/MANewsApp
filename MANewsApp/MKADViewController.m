@@ -43,6 +43,8 @@ NSString * const MakersNewsURLKey = @"MakersNewsURLKey";
         
         MKADArticlesTableViewController *articlesTableViewController =
                                                                     [[MKADArticlesTableViewController alloc] initWithStyle:UITableViewStylePlain];
+
+        articlesTableViewController.articlesURLString = self.textField.text;
         
         [self.navigationController
                                 pushViewController:articlesTableViewController

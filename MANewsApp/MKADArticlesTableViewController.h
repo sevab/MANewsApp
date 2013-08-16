@@ -10,4 +10,7 @@
 
 @interface MKADArticlesTableViewController : UITableViewController
 
+@property (strong) NSString *articlesURLString;
+@property (strong) NSMutableData *responseData;
+
 @end
